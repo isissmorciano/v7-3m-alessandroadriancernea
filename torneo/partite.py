@@ -1,5 +1,23 @@
 from .squadre import aggiorna_statistiche
 
+# Una partita è rappresentata da un dizionario con:
+# - `squadra1`: nome squadra 1
+# - `squadra2`: nome squadra 2
+# - `gol1`: gol segnati da squadra1
+# - `gol2`: gol segnati da squadra2
+# - `data`: data della partita (stringa "YYYY-MM-DD")
+
+partite = [
+            crea_partita("Milan", "Inter", 2, 1, "2026-04-01"),
+            crea_partita("Juventus", "Roma", 3, 0, "2026-04-02"),
+            crea_partita("Napoli", "Lazio", 2, 2, "2026-04-03"),
+            crea_partita("Inter", "Juventus", 1, 1, "2026-04-08"),
+            crea_partita("Milan", "Roma", 2, 0, "2026-04-09"),
+            crea_partita("Napoli", "Juventus", 1, 2, "2026-04-10"),
+            crea_partita("Milan", "Lazio", 3, 1, "2026-04-15"),
+            crea_partita("Inter", "Napoli", 1, 1, "2026-04-16"),
+        ]
+
 def crea_partita(squadra1, squadra2, gol1, gol2, data):
     p1 = crea_partita("Milan", "Inter", 2, 1, "2026-04-01")
     p2 = crea_partita("Juventus", "Roma", 3, 0, "2026-04-02")
@@ -11,3 +29,6 @@ def crea_partita(squadra1, squadra2, gol1, gol2, data):
     p8 = crea_partita("Inter", "Napoli", 1, 1, "2026-04-16")
     return p1, p2, p3, p4, p5, p6, p7, p8
 
+def info_partita(partita):
+#        Restituisce stringa formattata.  
+#    Es: `"Inter 2 - 1 Milan (2026-05-07)"`

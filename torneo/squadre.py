@@ -51,18 +51,24 @@ def differenza_reti(squadra):
     diff = squadra["gol_segnati"] - squadra["gol_subiti"]
     return diff
 
-def aggiorna_statistiche(squadra, gol_fatti, gol_subiti):
+def aggiorna_statistiche(squadra, gol_segnati, gol_subiti):
 #        Aggiorna i dati della squadra dopo una partita:
 #    - Se `gol_fatti > gol_subiti`: +1 vittoria
 #    - Se `gol_fatti == gol_subiti`: +1 pareggio
 #    - Se `gol_fatti < gol_subiti`: +1 sconfitta
 #    - Aggiorna gol segnati e subiti
-    if squadra["gol_fatti"] > squadra["gol_subiti"]:
+    stats = squadra
+    if squadra["gol_segnati"] > squadra["gol_subiti"]:
         squadra["vittorie"] + 1
+    elif squadra["gol_segnati"] == squadra["gol_subiti"]:
+        squadra["pareggi"] + 1
+    elif squadra["gol_segnati"] < squadra["gol_subiti"]:
+        squadra["sconfitte"] + 1
+
 
 
 # print(differenza_reti)
 # differenza_reti()
 
 # print(differenza_reti(qualcosa))
-print(aggiorna_statistiche(squadra, gol_fatti, gol_subiti))
+print(aggiorna_statistiche(squadra, gol_segnati, gol_subiti))
