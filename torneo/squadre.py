@@ -21,7 +21,7 @@ squadra: dict = {
 
 def crea_squadra(nome, città, giocatori):
     #    Crea una squadra con statistiche iniziali a 0.
-    s1 = crea_squadra("Inter", "Milano", 23)
+    s1 = crea_squadra["Inter", "Milano", 23]
     s2 = crea_squadra("Milan", "Milano", 22)
     s3 = crea_squadra("Juventus", "Torino", 25)
     s4 = crea_squadra("Roma", "Roma", 20)
@@ -42,10 +42,8 @@ def info_squadra(squadra):
 
 def punti_squadra(squadra):
     #    Calcola i punti totali: vittorie * 3 + pareggi * 1.
-    punti1 = squadra(vittorie, pareggi, sconfitte)
-    punti = 0
-    puntii = vittorie * 3 + pareggi * 1
-    return puntii
+    punti1 = squadra["vittorie"] * 3 + squadra["pareggi"] * 1
+    return punti1
 
 def differenza_reti(squadra):
     #    Calcola la differenza tra gol segnati e gol subiti.
@@ -59,11 +57,12 @@ def aggiorna_statistiche(squadra, gol_fatti, gol_subiti):
 #    - Se `gol_fatti == gol_subiti`: +1 pareggio
 #    - Se `gol_fatti < gol_subiti`: +1 sconfitta
 #    - Aggiorna gol segnati e subiti
-    pass
+    if squadra["gol_fatti"] > squadra["gol_subiti"]:
+        squadra["vittorie"] + 1
 
 
 # print(differenza_reti)
 # differenza_reti()
 
 # print(differenza_reti(qualcosa))
-print(differenza_reti(squadra))
+print(aggiorna_statistiche(squadra, gol_fatti, gol_subiti))
